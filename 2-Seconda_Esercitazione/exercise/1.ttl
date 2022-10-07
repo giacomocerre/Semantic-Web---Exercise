@@ -9,7 +9,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
+\
 #classes
 :Detective rdfs:subClassOf foaf:Person .
 :Doctor rdfs:subClassOf foaf:Person .
