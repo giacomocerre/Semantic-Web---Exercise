@@ -1,0 +1,74 @@
+
+#Dante: scrittore e poeta (sotto classi si Person), nome, cognome, label
+#Creatore di 4 :
+    # Diviana Commedia: libro(sotto classe di Text), italiano, data, label
+    # Convivio libro(sotto classe di Text), italiano, data, label
+    # Vita nova: libro(sotto classe di Text), italiano, data, label
+    # Monarchia: libro(sotto classe di Text), latino , data pubblicazione,
+
+#usare wikidata
+
+#Prefix Declaration
+@prefix : <https://pippo.org/> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <...>
+
+#classes
+:Writer rdfs:subClassOf foaf:Person .
+:Poet rdfs:subClassOf foaf:Person .
+:Book rdfs:subClassOf dctype:Text .
+#property
+:created rdfs:subPropertyOf dcterms:creator .
+#labeling
+wd:Q652 rdfs:label "Lingua Italiana" .
+wd:Q397 rdfs:label "Lingua Latina" .
+
+# -- OBJECTS --
+#Dante
+wd:Q1067 a :Writer , :Poet ;
+    foaf:givenName "Dante" ;
+    foaf:familyName "Alighieri" ; 
+    rdfs:label "Dante Alighieri";
+    :created wd:Q40185 , wd:Q666014, wd:Q18084, wd:Q134221 ;
+
+
+#Divina commedia
+wd:Q40185 a :Book ;
+    dcterms:creator wd:Q1067 ;
+    dcterms:title "Divina Commedia" ;
+    dcterms:issued "1309-10-06"^^xsd:date ;
+    dcterms:language wd:Q652 ;
+    rdfs:label "Divina Commedia" .
+
+
+#Convivio
+wd:Q666014 a :Book ;
+    dcterms:creator wd:Q1067 ;
+    dcterms:title "Convivio" ;
+    dcterms:issued "1309-10-06"^^xsd:date ;
+    dcterms:language wd:Q652 ;
+    rdfs:label "Convivio" .
+
+#Vita Nova
+wd:Q18084 a :Book ;
+    dcterms:creator wd:Q1067 ;
+    dcterms:title "Vita Nova" ;
+    dcterms:issued "1309-10-06"^^xsd:date ;
+    dcterms:language wd:Q652 ;
+    rdfs:label "Vita Nova" .
+
+
+
+#Monarchia
+wd:Q134221 a :Book ;
+    dcterms:creator wd:Q1067 ;
+    dcterms:title "Monarchia" ;
+    dcterms:issued "1309-10-06"^^xsd:date ;
+    dcterms:language wd:Q652 ;
+    rdfs:label "Monarchia" .
+
+

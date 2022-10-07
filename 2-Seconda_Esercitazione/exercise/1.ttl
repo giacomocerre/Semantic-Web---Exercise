@@ -1,0 +1,49 @@
+#sherlok dectevie, nome, label
+#bf dio watson is a doctor, givenName, familyName, label
+#eney of moryory doctor, giveName, familyName, label
+
+#wikidata@prefix : <https://example.org/> .
+
+
+@prefix : <https://example.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+#classes
+:Detective rdfs:subClassOf foaf:Person .
+:Doctor rdfs:subClassOf foaf:Person .
+:Professor rdfs:subClassOf foaf:Person .
+#property
+:bestFriend rdfs:subPropertyOf foaf:knows .
+:worstEnemy rdfs:subPropertyOf foaf:knows .
+
+# Sherlok Holmes
+wd:Q4653 a :Detective ;
+    foaf:givenName "Sherlock" ;
+    foaf:familyName "Holmes" ;
+    rdfs:label "bla bla bla" ;
+    :bestFriend wd:Q187349 ;
+    :worstEnemy wd:Q283111 .
+
+# John Watson
+wd:Q187349 a :Doctor ;
+    foaf:givenName "John" ;
+    foaf:familyName "Watson" ; 
+    rdfs:label "bla bla bla" ;
+    :bestFriend wd:Q4653 .
+
+#Moriarty
+wd:Q283111 a :Professor ;
+    foaf:givenName "James" ;
+    foaf:familyName "Moriarty" ; 
+    rdfs:label "bla bla bla" ;
+    :worstEnemy wd:Q4653 .
+
+
+
+
+
+
+
+

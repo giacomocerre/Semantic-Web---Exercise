@@ -1,0 +1,25 @@
+# Esercitazione 1 - Esercizio 2 (con i path relativi (@base))
+# Dichiarare la fondazioned dell'azienda Apple in data 1/4/1976. 
+# La fondazione è di tipo Event e  ha tre partecipati da dichiarare come lista.
+
+@base <http://example.com/> . #Path realtivo di un vocabolario
+@prefix rdf: <http://www.w3.org/2000/01/rdf-schema#> . #Prefix rdf per RDF schema
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #Prefix xsd per XML Schema
+
+
+#3 Dichiarazioni di partecipanti rdf:type e rdf:name
+<jobs> rdf:type <Person>;
+    <name> "Steve Jobs" .
+Steve Jobs
+<woz> rdf:type <Person>;
+    <name> "Steve Woz" .
+
+<wayne> rdf:type <Person>;
+    <name> "Wayne" .
+
+#Evento della fondazione dell'azienda Apple
+<apple> rdf:type <Event>;
+    <date> "01/04/1976"^^xsd:date ;
+    <partecipants> <jobs> ,
+        <woz> ,
+        <wayne> .

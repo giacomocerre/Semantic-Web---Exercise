@@ -1,0 +1,24 @@
+# Esercitazione 1 - Esercizio 2 (con i prefissi)
+# Dichiarare la fondazioned dell'azienda Apple in data 1/4/1976. 
+# La fondazione è di tipo Event e  ha tre partecipati da dichiarare come lista.
+
+@prefix : <http://example.com/> . #Prefix di default (solo con :) di un vocabolario (il prefissi di default può essere presente solo una volta in tutto il documento)
+@prefix rdf: <http://www.w3.org/2000/01/rdf-schema#> . #Prefix rdf per RDF schema
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #Prefix xsd per XML Schema
+
+#3 Partecipants declaration type and name
+:jobs rdf:type :Person;
+    :name "Steve Jobs" .
+
+:woz rdf:type :Person;
+    :name "Steve Jobs" .
+
+:wayne rdf:type :Person;
+    :name "Steve Jobs" .
+
+#apple foundation event declatation
+:apple rdf:type :Event;
+    :date "01/04/1976"^^xsd:date ;
+    :partecipants :jobs ,
+        :woz ,
+        :wayne .

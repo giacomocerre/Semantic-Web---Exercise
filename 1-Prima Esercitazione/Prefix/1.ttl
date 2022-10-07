@@ -1,0 +1,13 @@
+# Esercitazione 1 - Esercizio 1 (con i prefissi)
+# Dichiarere la persona Alan Mathison Turing.
+# La persona ha una data di nascita, una di morte e ha creato la macchina di Turing
+
+@prefix : <http://example.com/> . #Prefix di default (solo con :) di un vocabolario (il prefissi di default può essere presente solo una volta in tutto il documento)
+@prefix rdf: <http://www.w3.org/2000/01/rdf-schema#> . #Prefix rdf per RDF schema
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . #Prefix xsd per XSD Schema
+
+:turing rdf:type :Person;
+    :name "Alan Mathison Turing" ;
+    :birth "23/06/1912"^^xsd:date ;
+    :death "07/06/1954"^^xsd:date ;
+    :hadFormalized :turingMachine .
