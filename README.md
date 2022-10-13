@@ -3,7 +3,8 @@ Repository contenente le varie esercitazioni relative al corso di studi **Semati
 
 - [Eserciztazione 1](./1-Prima%20Esercitazione/):
 Esercizi basati sull'uso di `@base` e `@prefix`
-- [Esercitazione 2](./2-Seconda_Esercitazione/):
+- [Esercitazione 2](./2-Seconda%20Esercitazione/):
 Esercizi basati sull'uso di `FOAF`, `DUBLIN CORE` e `WikiData`
+- [Eserciztazione 3](./3-Terza%20Esercitazione/): ...
 
 ----
