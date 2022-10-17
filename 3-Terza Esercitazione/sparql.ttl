@@ -1,0 +1,83 @@
+#query 1
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?givenName
+WHERE {
+  ?iri foaf:givenName ?givenName .
+  ?iri foaf:familyName "Alighieri" .
+}
+
+#query2
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?iri ?label
+WHERE {
+  ?iri rdfs:label ?label .
+  ?iri a foaf:Person .
+}
+
+#query3
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+
+SELECT ?iri ?label
+WHERE {
+  ?iri a dctypes:Text .
+  ?iri dcterms:creator wd:Q1067 .
+  ?iri rdfs:label ?label .
+} ORDER BY ?label
+
+#query4
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+
+SELECT ?label ?date
+WHERE {
+  ?iri a dctypes:Text .
+  ?iri dcterms:creator wd:Q1067 .
+  ?iri rdfs:label ?label .
+  ?iri dcterms:issued ?date
+} ORDER BY ?date LIMIT 2
+
+#query5
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+
+SELECT DISTINCT ?familyName
+WHERE {
+  ?iri foaf:familyName ?familyName .
+}
+
+#query6
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX wd: <http://www.wikidata.org/entity/> 
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dctypes: <http://purl.org/dc/dcmitype/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?label ?date
+WHERE {
+  ?iri a dctypes:Text .
+  ?iri dcterms:creator wd:Q1067 .
+  ?iri rdfs:label ?label .
+  ?iri dcterms:issued ?date .
+  FILTER (?date > "1310"^^xsd:date)
+}
