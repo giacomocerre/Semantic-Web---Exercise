@@ -81,3 +81,65 @@ WHERE {
   ?iri dcterms:issued ?date .
   FILTER (?date > "1310"^^xsd:date)
 }
+
+
+#query7
+SELECT ?Pname ?Pfamily
+WHERE {
+	?iri a foaf:Person ;
+           foaf:givenName ?Pname .
+    OPTIONAL { ?iri foaf:familyName ?Pfamily .}
+}
+
+#query8
+SELECT ?iri ?label
+WHERE {
+  ?iri a dctypes:Text ;
+         rdfs:label ?label .
+  {?iri dcterms:language wd:Q652}
+  UNION
+  { ?iri dcterms:language wd:Q150 } # French
+  
+} 
+
+#query9
+SELECT ?label
+WHERE {
+  ?iri dcterms:issued ?date .
+  ?iri a dctypes:Text ;
+  	rdfs:label ?label .
+  {?iri dcterms:creator wd:Q1067 .} #Dante
+  UNION
+  {?iri dcterms:creator wd:Q366328 .} # French
+  FILTER(?date < "1300-01-01"^^xsd:date)
+}
+
+#query10
+SELECT ?language (COUNT(?texts) AS ?count)
+WHERE {
+  ?iri a ?texts ;
+         a dctypes:Text ;
+         dcterms:language ?language
+}GROUP BY ?language
+
+#query 11
+SELECT ?label
+WHERE {
+  ?iri rdfs:label ?label .
+
+  ?iri a dctypes:Text ;
+         dcterms:creator wd:Q1067 ;.
+  MINUS {
+     ?iri a dctypes:Text ;
+        dcterms:creator wd:Q1067 ;
+        dcterms:language wd:Q397 ;
+  }
+}
+
+#QUERY11
+SELECT ?iri ?label
+WHERE {
+  ?iri a foaf:Person ;
+         rdfs:label ?label .
+  FILTER NOT EXISTS { ?iri :hasChild ?a .}
+}
