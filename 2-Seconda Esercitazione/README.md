@@ -47,5 +47,5 @@ Free and Open. Può essere editata sia da bot che da umani.</br>
 
 
 ## Link utili
-- <a href="https://prefix.cc/]">Sito per trovare gli IRI tramite un n amesapce specifico `www.prefix.cc`</a> 
+- <a href="https://prefix.cc/">Sito per trovare gli IRI tramite un n amesapce specifico `www.prefix.cc`</a> 
 - <a href="http://ttl.summerofcode.be/">Sito per la validazione del codice Tutrtle</a>
